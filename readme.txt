@@ -1,0 +1,1 @@
+Hi Mayur this is inside c+ foldr 
