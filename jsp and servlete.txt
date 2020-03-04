@@ -1,0 +1,7 @@
+How servlet work 
+client send request for page for dynamic or static page 
+and server response. so suppose client send the request and page is not available o server so it take help from other service like servlete 
+and fatch the info and create a dynamic page to answer the request 
+you need to install tomcate and request goes to tomcate so tomcate build a dynamic peg for as 
+tomcate store sarvlet which is kind of service.
+response will be in different formate available it create response object 
