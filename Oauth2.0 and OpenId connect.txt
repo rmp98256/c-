@@ -1,0 +1,123 @@
+
+        ----------------- History-------------
+Simple login or forms authentication --
+1.hash password 
+2.verify hash 
+3.look up user info
+4.look up and autherization info
+
+ Downside -------
+  security 
+  mantainance 
+  single sign-on (SSO)
+
+
+     Authorization Code Flow Steps
+     The Authorization Code Flow goes through the following steps.
+
+    Client prepares an Authentication Request containing the desired request parameters.
+    Client sends the request to the Authorization Server.
+    Authorization Server Authenticates the End-User.
+    Authorization Server obtains End-User Consent/Authorization.
+    Authorization Server sends the End-User back to the Client with an Authorization Code.
+    Client requests a response using the Authorization Code at the Token Endpoint.
+    Client receives a response that contains an ID Token and Access Token in the response body.
+    Client validates the ID token and retrieves the End-User's Subject Identifier.
+
+  Delegated Autherization with  Oauth 2.0
+
+ OAuth 2.o teminology
+ 1. Resourse owner-- contact owner 
+ 2. Client---yupp app
+ 3. Authorization server-- account.google.com
+ 4. Resourse grant ---google contact api
+ 5. Authorization grant  - going back and forth 
+ 6. redirect URI--
+ 7. Access token -- key to get access to data 
+ 8. Scope -- contact.read() and contact.write()
+ 9. Consent ---list of scope 
+
+  Oauth is design for permision and scope but there is no way to get user information
+
+
+  What is OpenID Connect?
+  OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol.
+  It allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, 
+  as well as to obtain basic profile information about the End-User in an interoperable and REST-like manne
+
+
+  OpenId Connect placed at top of OAuth to authenticate the user 
+
+  Whtat OPenId connect adds
+  ID token (JWT) 
+------------------------------------------------
+   {
+      "iss" : "https://acciunts.google.com",
+      "sub" : "you@gmail.com",
+      "name" : "mayur "
+      "aud" :  "jhgdkfash"
+   }
+  signatur - to make sure no one change the ID token
+------------------------------------------------
+  UserInfo endpoint for getting more user info 
+  standard set of scopes 
+  Standard implementation
+
+
+
+    Use Oauth 2.o for 
+  1. Granting access to api
+  2. Getting access to user data in other system 
+        (Authorization)
+
+    Use OpenID Connect for:
+  1. Logging the user in 
+  2 .making your account available in other system 
+      (Authentication)
+       
+     
+    JWT token 
+    securely transmitting information between parties as a JSON object
+    JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.
+    JSON Web Tokens consist of three parts separated by dots (.), which are:
+
+   Header--The header typically consists of two parts: the type of the token, which is JWT,
+           and the signing algorithm being used, such as HMAC SHA256 or RSA.
+           eg -{
+                "alg": "HS256",
+                 "typ": "JWT"
+               }
+   Payload-- contains the claims
+             Claims are statements about an entity (typically, the user) and additional data. 
+             three types of claims: registered, public, and private claims.
+             {
+              "sub": "1234567890",
+              "name": "John Doe",
+              "admin": true
+             }
+   Signature---  To create the signature part you have to take the encoded header, 
+                 the encoded payload, a secret, the algorithm specified in the header, and sign that.
+            HMACSHA256(
+            base64UrlEncode(header) + "." +
+            base64UrlEncode(payload),
+            secret)
+
+
+
+      How do JSON Web Tokens work?
+      In authentication, when the user successfully logs in using their credentials, 
+      a JSON Web Token will be returned. Since tokens are credentials, great care must be taken to prevent security issues. 
+      In general, you should not keep tokens longer than required.
+
+    
+  
+  
+   
+
+
+
+
+
+
+
+

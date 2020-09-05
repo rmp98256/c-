@@ -1,0 +1,27 @@
+                                 
+
+
+                                                                       Keycloak
+1.  Single sing in And  sing out Solution
+2.  help in User login ,User registration ,Account management , Security Administration
+3.  It is used in session management like single logout,view and manage session, session stats ,session revocation
+
+      In RM 
+       --- Keycloak is used in claim permission and User role mapping 
+           it usses RDBMS and mongodb to  store user data 
+
+
+                                                              Demo
+
+
+                  Keyclock Server 
+       SSO       /not
+                /
+Browser-------  Customer portal
+                \
+                 \product portal
+
+Admin portal can see wht are the portal are active now 
+
+
+ 
